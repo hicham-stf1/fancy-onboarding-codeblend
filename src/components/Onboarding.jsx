@@ -6,9 +6,10 @@ import OnboardingStep from './OnboardingStep';
 export default function Onboarding({ isOpen, closeModal, onboardingGuides }) {
     const [currentPage, setCurrentPage] = useState(1);
 
+    // Reset to the first page when the modal is opened
     useEffect(() => {
         if (isOpen) {
-            setCurrentPage(1); // Reset to the first page when the modal is opened
+            setCurrentPage(1);
         }
     }, [isOpen]);
 
@@ -60,7 +61,10 @@ export default function Onboarding({ isOpen, closeModal, onboardingGuides }) {
     };
 
     return (
-        <Transition appear show={isOpen} as={Fragment}>
+        <Transition
+            appear
+            show={isOpen}
+            as={Fragment}>
             <Dialog
                 as="div"
                 className="relative z-20"
